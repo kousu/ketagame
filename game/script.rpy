@@ -52,9 +52,9 @@ image guard talking = crop_top_percent("images/sprites/guard/talking.png", 0.65)
 label start:
     # Title screen
     scene black
-    centered "{size=+10}THE VISIONARY{/size}\n{size=-2}A Philosophical Adventure{/size}"
+    centered "{size=+10}THE VISIONARY{/size}\n{size=-2}A Philosophical Confabulation{/size}"
     pause 1.0
-    centered "A game about ideas, altered states, and the future of humanity"
+    centered "An encomium to ideas, altered states, and the future of humanity"
     pause 1.5
 
     # Get player name

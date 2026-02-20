@@ -24,6 +24,11 @@ alias renpy_web_build='renpy ~/Downloads/renpy*-sdk/launcher/ web_build '
 renpy_web_build .
 ```
 
+Useful:
+
+* `mogrify -path scenes/ -resize 50%  hires/scenes/*.png`
+* `mogrify -path sprites/guard/ -trim +repage  hires/sprites/guard/*.png`
+
 You will get files in *-dists/*-web. You need to put those on a web server;
 for some reason they aren't allowed to run from file://.
 (tip: test with `python -m http.server` in the `*-web` directory)_
