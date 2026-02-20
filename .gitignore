@@ -1,4 +1,8 @@
+# go
 ketagame
 
+# renpy
+game/saves
+game/cache
 log.txt
 traceback.txt
