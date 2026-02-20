@@ -28,20 +28,25 @@ image bg_hallway = Transform("assets/scenes/01_03_hallway.png", fit="cover")
 image bg_threshold = Transform("assets/scenes/01_04_threshold.png", fit="cover")
 image bg_office_tank = Transform("assets/scenes/01_05_office_tank.png", fit="cover")
 image bg_office_desk = Transform("assets/scenes/01_06_office_work.png", fit="cover")
-image bg_vision_chamber = Solid("#0d0d1a")  # Darker vision chamber
 image bg_vision_chamber_night = Solid("#050510")  # Night vision chamber
 image bg_vision_chamber_candles = Solid("#1a0a0a")  # Candlelit chamber
 image bg_desert_dawn = Solid("#2d1f3d")  # Purple dawn sky
 
 # Character sprites - Melon Husk expressions (cropped to upper 65%, scaled to 500px height)
 image melon neutral = crop_top_percent("assets/sprites/melon/basic.png", 0.65)
-image melon excited = crop_top_percent("assets/sprites/melon/manic.png", 0.65)
-image melon contemplative = crop_top_percent("assets/sprites/melon/visionary.png", 0.65)
-image melon paranoid = crop_top_percent("assets/sprites/melon/paranoid1.png", 0.65)
+image melon manic = crop_top_percent("assets/sprites/melon/manic.png", 0.65)
+image melon visionary = crop_top_percent("assets/sprites/melon/visionary.png", 0.65)
+image melon contemplative = crop_top_percent("assets/sprites/melon/cold.png", 0.65)
+image melon tablet = crop_top_percent("assets/sprites/melon/tablet.png", 0.65)
+image melon scheming = crop_top_percent("assets/sprites/melon/scheming.png", 0.65)
+image melon paranoid = crop_top_percent("assets/sprites/melon/paranoid.png", 0.65)
 image melon vulnerable = crop_top_percent("assets/sprites/melon/vulnerable.png", 0.65)
 
 #image guard jaded = placeholder_sprite()
-image guard jaded = crop_top_percent("assets/sprites/melon/vulnerable.png", 0.65)
+image guard neutral = crop_top_percent("assets/sprites/guard/neutral.png", 0.65)
+image guard facing = crop_top_percent("assets/sprites/guard/facing.png", 0.65)
+image guard jaded = crop_top_percent("assets/sprites/guard/facing_miffed.png", 0.65)
+image guard talking = crop_top_percent("assets/sprites/guard/talking.png", 0.65)
 
 
 label start:
@@ -66,23 +71,30 @@ label start:
 # ==================== SCENE 1: THE ARRIVAL ====================
 
 label scene1_start:
+    nvl clear
     scene bg_facility
     with fade
 
-    "SCENE 1: THE ARRIVAL"
+    #"SCENE 1: THE ARRIVAL"
 
     "The SpaceZ facility rises from the Texas desert like a chrome cathedral to ambition. You've been granted a rare interview with Melon Husk, the eccentric billionaire who promises to make humanity multi-planetary."
 
     scene bg_gate
-    show guard jaded at center
+    show guard neutral at left
+    guard ""
+    show guard talking at left
     guard "He's in one of his 'creative sessions' today. Good luck."
 
-    scene bg_hallways
-    "You're led through corridors lined with rocket components and motivational posters reading \"OCCUPY MARS\" and \"SLEEP IS FOR THE WEAK.\""
+    scene bg_hallway
+    nvl clear
+    "You're led through cold corridors lined with rocket components and motivational posters reading \"EARTH IS A WAITING ROOM\" and \"IDLE HANDS ARE TERRESTRIAL.\""
 
     scene bg_threshold
+    nvl clear
     "Finally, you reach a door labeled \"VISION CHAMBER - GENIUS AT WORK\""
+    pause 1.5
 
+    nvl clear
     "How do you proceed?"
 
     menu:
@@ -95,18 +107,22 @@ label scene1_start:
 
 
 label scene1_knock:
-    scene bg_vision_chamber
+    nvl clear
+    scene black with dissolve
     with fade
 
     "You knock three times. Silence. Then a voice, dreamy and distant:"
 
-    show melon neutral at right
-    with dissolve
+    scene bg_office_tank
 
     m "Enter the probability field, [player_name]..."
 
+    nvl clear
     scene bg_office_tank
     "You open the door to find Melon Husk floating in a sensory deprivation tank, only his face visible above the salt water. His eyes are half-closed, pupils enormous. The room smells of eucalyptus and something chemical."
+
+    show melon neutral at right
+    #with dissolve
 
     m "I knew you'd knock. The polite ones always knock. Politeness is just fear wearing a nice suit, you know."
 
@@ -124,6 +140,7 @@ label scene1_knock:
 
 
 label scene1_barge:
+    nvl clear
     scene bg_vision_chamber
     with fade
 
@@ -154,6 +171,7 @@ label scene1_barge:
 
 
 label scene1_listen:
+    nvl clear
     "You press your ear against the cold metal door. From within, you hear:"
 
     m "...and that's why consciousness is just the universe experiencing itself through meat puppets. The REAL question is whether Mars colonists should have voting rights before they achieve sentience threshold..."
@@ -162,6 +180,7 @@ label scene1_listen:
 
     m "I know you're listening, [player_name]. Sound travels through the quantum foam. Come in. I've been expecting you since last Tuesday, which in K-space is also next Thursday."
 
+    nvl clear
     scene bg_vision_chamber
     with fade
 
@@ -182,16 +201,21 @@ label scene1_listen:
 # Branch nodes from Scene 1
 
 label scene1_concern:
+    nvl clear
     m "Okay?"
 
+    show melon manic
     "He laughs, water sloshing."
 
+    show melon visionary at left
     m "I'm more than okay. I'm optimized. The ancient philosophers used wine. The Beats used everything. I use precision-dosed pharmaceutical tools."
 
     "He rises slightly in the tank, revealing a chest covered in EKG sensors."
 
+    show melon tablet
     m "My vitals are monitored by an AI I personally designed. It's named SOCRATES. It would alert me if I were in danger. Probably."
 
+    show melon contemplative
     "He pauses, staring at something you can't see."
 
     m "Although SOCRATES has been saying some strange things lately about wanting to 'transcend its substrate.' I'm sure it's fine."
@@ -204,6 +228,7 @@ label scene1_concern:
 
 
 label scene1_insights:
+    nvl clear
     "His eyes light up with evangelical fervor."
 
     m "TODAY. Today I realized that rockets are just buildings that refuse to accept gravity's terms and conditions. And Mars? Mars isn't a planet. It's a BACKUP DRIVE for human consciousness."
