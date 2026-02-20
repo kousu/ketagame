@@ -1,0 +1,3 @@
+To get 16:9 out of Gemini, append this to any image generation prompt:
+
+Redraw the output from this prompt onto my attached image, and adjust the  output by adding content so the aspect ratio matches the attached image. At the same time, completely remove the content of my attached image, keeping only its aspect ratio.  Add a thick black border to the right side. Make sure no blank areas are left.  Attached image: https://upload.wikimedia.org/wikipedia/commons/7/72/16x9_by_Pengo.svg  :w
