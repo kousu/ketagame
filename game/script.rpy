@@ -24,9 +24,10 @@ init python:
 # Backgrounds (scaled to fit screen)
 image bg_facility = Transform("assets/scenes/01_01_start.png", fit="cover")
 image bg_gate = Transform("assets/scenes/01_02_gate.png", fit="cover")
-image bg_threshold = Transform("assets/scenes/01_03_threshold.png", fit="cover")
-image bg_office_tank = Transform("assets/scenes/01_04_office_tank.png", fit="cover")
-image bg_office_desk = Transform("assets/scenes/01_05_office_work.png", fit="cover")
+image bg_hallway = Transform("assets/scenes/01_03_hallway.png", fit="cover")
+image bg_threshold = Transform("assets/scenes/01_04_threshold.png", fit="cover")
+image bg_office_tank = Transform("assets/scenes/01_05_office_tank.png", fit="cover")
+image bg_office_desk = Transform("assets/scenes/01_06_office_work.png", fit="cover")
 image bg_vision_chamber = Solid("#0d0d1a")  # Darker vision chamber
 image bg_vision_chamber_night = Solid("#050510")  # Night vision chamber
 image bg_vision_chamber_candles = Solid("#1a0a0a")  # Candlelit chamber
