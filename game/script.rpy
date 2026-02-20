@@ -22,31 +22,31 @@ init python:
 
 # Images
 # Backgrounds (scaled to fit screen)
-image bg_facility = Transform("assets/scenes/01_01_start.png", fit="cover")
-image bg_gate = Transform("assets/scenes/01_02_gate.png", fit="cover")
-image bg_hallway = Transform("assets/scenes/01_03_hallway.png", fit="cover")
-image bg_threshold = Transform("assets/scenes/01_04_threshold.png", fit="cover")
-image bg_office_tank = Transform("assets/scenes/01_05_office_tank.png", fit="cover")
-image bg_office_desk = Transform("assets/scenes/01_06_office_work.png", fit="cover")
+image bg_facility = Transform("images/scenes/01_01_start.png", fit="cover")
+image bg_gate = Transform("images/scenes/01_02_gate.png", fit="cover")
+image bg_hallway = Transform("images/scenes/01_03_hallway.png", fit="cover")
+image bg_threshold = Transform("images/scenes/01_04_threshold.png", fit="cover")
+image bg_office_tank = Transform("images/scenes/01_05_office_tank.png", fit="cover")
+image bg_office_desk = Transform("images/scenes/01_06_office_work.png", fit="cover")
 image bg_vision_chamber_night = Solid("#050510")  # Night vision chamber
 image bg_vision_chamber_candles = Solid("#1a0a0a")  # Candlelit chamber
 image bg_desert_dawn = Solid("#2d1f3d")  # Purple dawn sky
 
 # Character sprites - Melon Husk expressions (cropped to upper 65%, scaled to 500px height)
-image melon neutral = crop_top_percent("assets/sprites/melon/basic.png", 0.65)
-image melon manic = crop_top_percent("assets/sprites/melon/manic.png", 0.65)
-image melon visionary = crop_top_percent("assets/sprites/melon/visionary.png", 0.65)
-image melon contemplative = crop_top_percent("assets/sprites/melon/cold.png", 0.65)
-image melon tablet = crop_top_percent("assets/sprites/melon/tablet.png", 0.65)
-image melon scheming = crop_top_percent("assets/sprites/melon/scheming.png", 0.65)
-image melon paranoid = crop_top_percent("assets/sprites/melon/paranoid.png", 0.65)
-image melon vulnerable = crop_top_percent("assets/sprites/melon/vulnerable.png", 0.65)
+image melon neutral = crop_top_percent("images/sprites/melon/basic.png", 0.65)
+image melon manic = crop_top_percent("images/sprites/melon/manic.png", 0.65)
+image melon visionary = crop_top_percent("images/sprites/melon/visionary.png", 0.65)
+image melon contemplative = crop_top_percent("images/sprites/melon/cold.png", 0.65)
+image melon tablet = crop_top_percent("images/sprites/melon/tablet.png", 0.65)
+image melon scheming = crop_top_percent("images/sprites/melon/scheming.png", 0.65)
+image melon paranoid = crop_top_percent("images/sprites/melon/paranoid.png", 0.65)
+image melon vulnerable = crop_top_percent("images/sprites/melon/vulnerable.png", 0.65)
 
 #image guard jaded = placeholder_sprite()
-image guard neutral = crop_top_percent("assets/sprites/guard/neutral.png", 0.65)
-image guard facing = crop_top_percent("assets/sprites/guard/facing.png", 0.65)
-image guard jaded = crop_top_percent("assets/sprites/guard/facing_miffed.png", 0.65)
-image guard talking = crop_top_percent("assets/sprites/guard/talking.png", 0.65)
+image guard neutral = crop_top_percent("images/sprites/guard/neutral.png", 0.65)
+image guard facing = crop_top_percent("images/sprites/guard/facing.png", 0.65)
+image guard jaded = crop_top_percent("images/sprites/guard/facing_miffed.png", 0.65)
+image guard talking = crop_top_percent("images/sprites/guard/talking.png", 0.65)
 
 
 label start:
@@ -145,10 +145,10 @@ label scene1_barge:
     with fade
 
     "You push open the door with confidence."
-    
+
     show melon visionary at right
     "Inside, Melon Husk sits cross-legged on a floating platform, surrounded by holographic displays of Mars colony schematics."
-    
+
     show melon manic at left
     "His eyes snap to you with unsettling intensity."
 
