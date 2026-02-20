@@ -10,40 +10,38 @@ define guard = Character("Security Guard", color="#888888")
 # Player name variable
 default player_name = "Stranger"
 
-# Images - placeholder graphics (replace with actual art assets later)
-# Backgrounds
-image bg_facility = Solid("#1a1a2e")  # Dark tech facility
+# Helper functions
+init python:
+    def crop_top_percent(img, percent):
+        """Crop image to top percentage (e.g., 0.65 for top 65%)"""
+        w, h = renpy.image_size(img)
+        return Transform(img, crop=(0, 0, w, int(h * percent)))
+
+    def placeholder_sprite():
+        return im.Crop("lol", (0,0,0,0))
+
+# Images
+# Backgrounds (scaled to fit screen)
+image bg_facility = Transform("assets/scenes/01_01_start.png", fit="cover")
+image bg_gate = Transform("assets/scenes/01_02_gate.png", fit="cover")
+image bg_threshold = Transform("assets/scenes/01_03_threshold.png", fit="cover")
+image bg_office_tank = Transform("assets/scenes/01_04_office_tank.png", fit="cover")
+image bg_office_desk = Transform("assets/scenes/01_05_office_work.png", fit="cover")
 image bg_vision_chamber = Solid("#0d0d1a")  # Darker vision chamber
 image bg_vision_chamber_night = Solid("#050510")  # Night vision chamber
 image bg_vision_chamber_candles = Solid("#1a0a0a")  # Candlelit chamber
 image bg_desert_dawn = Solid("#2d1f3d")  # Purple dawn sky
 
-# Character placeholders - silhouettes with colored backgrounds
-image melon neutral = Composite(
-    (300, 500),
-    (0, 0), Solid("#1a1a1a", xsize=300, ysize=500),
-    (50, 50), Text("MELON HUSK\n(neutral)", size=24, color="#00ff88", text_align=0.5)
-)
-image melon excited = Composite(
-    (300, 500),
-    (0, 0), Solid("#1a2a1a", xsize=300, ysize=500),
-    (50, 50), Text("MELON HUSK\n(excited)", size=24, color="#00ff88", text_align=0.5)
-)
-image melon contemplative = Composite(
-    (300, 500),
-    (0, 0), Solid("#1a1a2a", xsize=300, ysize=500),
-    (50, 50), Text("MELON HUSK\n(contemplative)", size=24, color="#00ff88", text_align=0.5)
-)
-image melon paranoid = Composite(
-    (300, 500),
-    (0, 0), Solid("#2a1a1a", xsize=300, ysize=500),
-    (50, 50), Text("MELON HUSK\n(paranoid)", size=24, color="#ff8888", text_align=0.5)
-)
-image melon vulnerable = Composite(
-    (300, 500),
-    (0, 0), Solid("#1a1a1a", xsize=300, ysize=500),
-    (50, 50), Text("MELON HUSK\n(vulnerable)", size=24, color="#88aaff", text_align=0.5)
-)
+# Character sprites - Melon Husk expressions (cropped to upper 65%, scaled to 500px height)
+image melon neutral = crop_top_percent("assets/sprites/melon/basic.png", 0.65)
+image melon excited = crop_top_percent("assets/sprites/melon/manic.png", 0.65)
+image melon contemplative = crop_top_percent("assets/sprites/melon/visionary.png", 0.65)
+image melon paranoid = crop_top_percent("assets/sprites/melon/paranoid1.png", 0.65)
+image melon vulnerable = crop_top_percent("assets/sprites/melon/vulnerable.png", 0.65)
+
+#image guard jaded = placeholder_sprite()
+image guard jaded = crop_top_percent("assets/sprites/melon/vulnerable.png", 0.65)
+
 
 label start:
     # Title screen
@@ -74,10 +72,14 @@ label scene1_start:
 
     "The SpaceZ facility rises from the Texas desert like a chrome cathedral to ambition. You've been granted a rare interview with Melon Husk, the eccentric billionaire who promises to make humanity multi-planetary."
 
+    scene bg_gate
+    show guard jaded at center
     guard "He's in one of his 'creative sessions' today. Good luck."
 
+    scene bg_hallways
     "You're led through corridors lined with rocket components and motivational posters reading \"OCCUPY MARS\" and \"SLEEP IS FOR THE WEAK.\""
 
+    scene bg_threshold
     "Finally, you reach a door labeled \"VISION CHAMBER - GENIUS AT WORK\""
 
     "How do you proceed?"
@@ -97,11 +99,12 @@ label scene1_knock:
 
     "You knock three times. Silence. Then a voice, dreamy and distant:"
 
-    show melon contemplative at right
+    show melon neutral at right
     with dissolve
 
     m "Enter the probability field, [player_name]..."
 
+    scene bg_office_tank
     "You open the door to find Melon Husk floating in a sensory deprivation tank, only his face visible above the salt water. His eyes are half-closed, pupils enormous. The room smells of eucalyptus and something chemical."
 
     m "I knew you'd knock. The polite ones always knock. Politeness is just fear wearing a nice suit, you know."
@@ -125,7 +128,7 @@ label scene1_barge:
 
     "You push open the door with confidence. Inside, Melon Husk sits cross-legged on a floating platform, surrounded by holographic displays of Mars colony schematics. His eyes snap to you with unsettling intensity."
 
-    show melon paranoid at right
+    show melon visionary at right
     with dissolve
 
     m "Bold. I like bold. Boldness built the pyramids. Also slaves, but mostly boldness."
@@ -604,6 +607,7 @@ label scene1_history:
 # ==================== SCENE 2: THE KETAMINE PHILOSOPHY SESSION ====================
 
 label scene2_start:
+    nvl clear
     scene bg_vision_chamber_night
     with fade
 

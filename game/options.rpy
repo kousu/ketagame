@@ -4,6 +4,7 @@
 ## Game metadata
 define config.name = _("THE VISIONARY")
 define config.version = "1.0"
+#define config.developer = True  # enables ctrl for skip mode and Shift+O for the developer console which can run renpy commands
 
 define gui.show_name = True
 define gui.about = _p("""
