@@ -4,13 +4,13 @@
 ## Game metadata
 define config.name = _("THE VISIONARY")
 define config.version = "1.0"
-#define config.developer = True  # enables ctrl for skip mode and Shift+O for the developer console which can run renpy commands
+#define config.developer = True
 
 define gui.show_name = True
 define gui.about = _p("""
-THE VISIONARY: A Philosophical Adventure
+THE VISIONARY: A Philosophical Confabulation
 
-A game about consciousness, altered states, and human destiny.
+An encomium to consciousness, altered states, and human destiny.
 
 Is it ethical to get ideas about humanity's future while high?
 """)
@@ -84,8 +84,8 @@ init python:
     build.classify('**/README*', None)
     build.classify('**.md', None)
     build.classify('**.go', None)
-    build.classify('game/images/scenes/unused/**', None)
     build.classify('game/images/prompts/**', None)
+    build.classify('game/images/hires/**', None)
     build.classify('**-dists/**', None)
     build.classify('**.rpy', None)
     build.classify('**.rpyc', 'archive')
