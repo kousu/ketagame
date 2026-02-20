@@ -73,7 +73,7 @@ label start:
 label scene1_start:
     nvl clear
     scene bg_facility
-    with fade
+    pause 2.0
 
     #"SCENE 1: THE ARRIVAL"
 
@@ -92,7 +92,7 @@ label scene1_start:
     scene bg_threshold
     nvl clear
     "Finally, you reach a door labeled \"VISION CHAMBER - GENIUS AT WORK\""
-    pause 1.5
+    pause 2.0
 
     nvl clear
     "How do you proceed?"
@@ -141,26 +141,33 @@ label scene1_knock:
 
 label scene1_barge:
     nvl clear
-    scene bg_vision_chamber
+    scene bg_office_desk
     with fade
 
-    "You push open the door with confidence. Inside, Melon Husk sits cross-legged on a floating platform, surrounded by holographic displays of Mars colony schematics. His eyes snap to you with unsettling intensity."
-
+    "You push open the door with confidence."
+    
     show melon visionary at right
-    with dissolve
+    "Inside, Melon Husk sits cross-legged on a floating platform, surrounded by holographic displays of Mars colony schematics."
+    
+    show melon manic at left
+    "His eyes snap to you with unsettling intensity."
 
     m "Bold. I like bold. Boldness built the pyramids. Also slaves, but mostly boldness."
 
+    show melon scheming at right
     "He taps his temple."
 
     m "I'm currently operating on three planes of consciousness simultaneously. The ketamine helps me see the multiverse."
 
+    show melon visionary at center
     "He gestures at the holograms."
 
     m "In 47%% of timelines, you're here to assassinate me. But I calculated this is probably the one where you're a journalist. Probably."
 
+    show melon vulnerable at right
     "His hand hovers near what might be a panic button."
 
+    show melon neutral at center
     menu:
         "\"I'm just here to understand your vision for humanity.\"":
             jump scene1_vision
@@ -172,6 +179,7 @@ label scene1_barge:
 
 label scene1_listen:
     nvl clear
+    scene black with dissolve
     "You press your ear against the cold metal door. From within, you hear:"
 
     m "...and that's why consciousness is just the universe experiencing itself through meat puppets. The REAL question is whether Mars colonists should have voting rights before they achieve sentience threshold..."
@@ -181,14 +189,14 @@ label scene1_listen:
     m "I know you're listening, [player_name]. Sound travels through the quantum foam. Come in. I've been expecting you since last Tuesday, which in K-space is also next Thursday."
 
     nvl clear
-    scene bg_vision_chamber
-    with fade
+    scene bg_office_tank
+    show melon scheming at center
 
+    pause 2.0
+    with dissolve
     "The door slides open automatically. Melon Husk stands before a massive window overlooking the rocket assembly floor, his back to you. He's wearing what appears to be a spacesuit mixed with a bathrobe."
 
-    show melon neutral at right
-    with dissolve
-
+    show melon neutral at center
     menu:
         "\"How did you know my name?\"":
             jump scene1_name
