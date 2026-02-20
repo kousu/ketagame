@@ -1,0 +1,17 @@
+BASE SPRITE PROMPT (for inpainting expressions):
+
+Portrait of eccentric tech billionaire, mid-40s, disheveled short hair, wearing hybrid spacesuit-bathrobe (white bathrobe over partial spacesuit elements), EKG sensor patches visible on chest, slightly dilated pupils, neutral contemplative expression, standing pose from waist up, three-quarter view facing left, simple dark gradient background for easy removal, soft studio lighting, visual novel character art style, anime-influenced but semi-realistic, clean linework, flat colors suitable for game sprite
+
+NOTES FOR INPAINTING:
+- Keep face area clear and well-lit for expression changes
+- Neutral expression = relaxed brow, slight distant gaze, mouth closed
+- For other expressions, inpaint only the face region:
+  - excited: wide eyes, open mouth smile, raised eyebrows
+  - contemplative: slightly lowered eyes, furrowed brow, hand on chin
+  - paranoid: wide intense eyes, tense jaw, suspicious sideways glance
+  - vulnerable: tired eyes, slight frown, softer features
+
+TECHNICAL:
+- Output at 1024x1024 or higher
+- Keep background simple/solid for easy transparency masking
+- Consistent lighting direction (top-left) across all variants
