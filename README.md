@@ -21,6 +21,8 @@ To build for export:
 ```
 alias renpy_web_build='renpy ~/Downloads/renpy*-sdk/launcher/ web_build '
 renpy_web_build .
+
+sdigfjodsijfiodsjfiodsjiofdsjhoifds
 ```
 
 Useful:
